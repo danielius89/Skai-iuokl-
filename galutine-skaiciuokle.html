@@ -44,6 +44,12 @@
     color: #fff;
     transition: all 200ms ease-out;
   }
+
+  .row-tarpine>.col>.col-inner {
+    padding: 16px 16px 16px 16px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+  }
 </style>
 <section class="section" id="section_skaiciuokle">
   <div class="bg section-bg fill bg-fill bg-loaded">
@@ -175,65 +181,172 @@
   <label> Jūsų pranešimas (neprivaloma)
       [textarea your-message] </label>
   -->
-
-    [calculate_button skaiciuoti "Skaičiuoti"]
-
-    Elektros instaliacija (pagal atsakytą klausimą "Ar reikia el. instaliacijos")
-    <small>[Taip = 1, Ne = 0] * ((y + 6) * 20 + (x + 5) * 25)</small>
-    [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + (
-    buto-kvadratura + 5 ) * 25)"]
-
-    Sienų tinkavimas
-    <small>[Taip = 1, Ne = 0] * (x * 2.5 * 12) </small>
-    [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
-
-    Lubų apdaila
-    <small>(x * [Gipsas = 16, Tinkavimas = 12, Įtempiamos = 0]) + ((x - 5) * seseline-siule))</small>
-    [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) *
-    seseline-siule-var)"]
-
-    Plytelės
-    <small>((x / 10 * 3.2 + x / 10) * 30) * vonios-kamb-skaicius</small>
-    [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) *
-    vonios-kamb-skaicius"]
-
-    Palangės
-    <small>50 * langu-skaicius</small>
-    [calculation calculation-5 "50 * langai"]
-
-    Angokraščių glaistymas dažymas
-    <small>langu-skaicius * 6 * 12</small>
-    [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
-
-    Durys
-    <small>duru-montavimas * y</small>
-    [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
-
-    Grindys
-    <small>(x - vonios-kamb-skaicius * 5) * grindys
-      <div> </div>
-      Laminatas 10 / Vinilas 14 / Parketlentės 16 / Parketas eglute 20
-    </small>
-    [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
-
-    Grindjuostės
-    <small>(x - 5) * 10</small>
-    [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
-
-    Santechnika
-    <small>vonios-kamb-skaicius * [Taip = 450, Ne = 0]</small>
-    [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
-
-    Papildomi darbai
-    <small> x * 10 </small>
-    [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
-
+    <div class="row align-equal">
+      [calculate_button skaiciuoti "Skaičiuoti"]
+      <div></div>
+      <div id="col-1229512343" class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Elektros instaliacija
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div id="col-724535297" class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + (
+                buto-kvadratura + 5 ) * 25)"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Sienų tinkavimas
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Lubų apdaila
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) *
+                seseline-siule-var)"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Plytelės
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) *
+                vonios-kamb-skaicius"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Palangės
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-5 "50 * langai"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Angokraščių glaistymas dažymas
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Durys
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Grindys
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Grindjuostės
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Santechnika
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5>
+            Papildomi darbai
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+                [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div style="height: 20px"></div>
     <div class="row align-equal">
       <div class="col small-12 large-12">
         <div class="col-inner">
-          <strong>Galutinis rezultatas:</strong>
-          <small>sudedamos visos aukščiau esančios sumos</small>
+          <h4>Bendra suma:</h4>
         </div>
       </div>
     </div>
@@ -247,9 +360,6 @@
         </div>
       </div>
     </div>
-
-
-
     <div class="row align-equal">
       <div class="col small-12 large-12">
         <div class="col-inner">
@@ -258,9 +368,6 @@
         </div>
       </div>
     </div>
-
-
-
     <!-- [submit "Pateikti"]-->
   </div>
 </section>
