@@ -178,7 +178,7 @@
 
     [calculate_button skaiciuoti "Skaičiuoti"]
 
-    El. instaliacija (pagal atsakytą klausimą "Ar reikia el. instaliacijos")
+    Elektros instaliacija (pagal atsakytą klausimą "Ar reikia el. instaliacijos")
     <small>[Taip = 1, Ne = 0] * ((y + 6) * 20 + (x + 5) * 25)</small>
     [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + (
     buto-kvadratura + 5 ) * 25)"]
@@ -229,15 +229,37 @@
     [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
 
     <div style="height: 20px"></div>
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          <strong>Galutinis rezultatas:</strong>
+          <small>sudedamos visos aukščiau esančios sumos</small>
+        </div>
+      </div>
+    </div>
 
-    <strong>Galutinis rezultatas:</strong>
-    <small>sudedamos visos aukščiau esančios sumos</small>
-    [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2
-    "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7
-    + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+    <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2
+          "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7
+          + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+        </div>
+      </div>
+    </div>
 
-    <p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi skaičiuoklės veikimo
-      logika.</p>
+
+
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          <p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi skaičiuoklės veikimo
+            logika.</p>
+        </div>
+      </div>
+    </div>
+
+
 
     <!-- [submit "Pateikti"]-->
   </div>
