@@ -1,39 +1,97 @@
-	/* form customization */
-	.select-resize-ghost,
-	.select2-container .select2-choice,
-	.select2-container .select2-selection,
-	input[type=date],
-	input[type=email],
-	input[type=number],
-	input[type=password],
-	input[type=search],
-	input[type=tel],
-	input[type=text],
-	input[type=url],
-	select,
-	textarea {
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
 
-	  border-radius: 8px;
-	  border: 1.25px solid var(--gray-light, #E9E9E9);
-	  box-shadow: none;
-	}
+  font: inherit;
+  color: currentColor;
+  width: 37px;
+  height: 37px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-light, #E9E9E9);
+  display: inline-flex;
+  place-content: center;
+}
 
-	input:hover,
-	select:hover,
-	textarea:hover {
-	  border-radius: 8px;
-	  border: 1.25px solid var(--primary, #4CAF50);
-	  box-shadow: none;
-	}
+.wpcf7-list-item label {
+  display: flex;
+}
 
-	input[type=email]:focus,
-	input[type=number]:focus,
-	input[type=password]:focus,
-	input[type=search]:focus,
-	input[type=tel]:focus,
-	input[type=text]:focus,
-	select:focus,
-	textarea:focus {
-	  border: 1.25px solid var(--primary, #4CAF50);
-	}
-	/* form customization -end */
+.wpcf7-list-item label .wpcf7-list-item-label {
+  display: inline-flex;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: white;
+  position: relative;
+  top: 7px;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:checked {
+  transform: scale(1);
+  background-color: #4CAF50;
+  border: 1px solid var(--gray-light, #4CAF50);
+}
+
+input[type="checkbox"]:hover {
+  border: 1px solid var(--gray-light, #4CAF50);
+}
+
+
+/* form customization */
+.select-resize-ghost,
+.select2-container .select2-choice,
+.select2-container .select2-selection,
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+select,
+textarea {
+
+  border-radius: 8px;
+  border: 1.25px solid var(--gray-light, #E9E9E9);
+  box-shadow: none;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-radius: 8px;
+  border: 1.25px solid var(--primary, #4CAF50);
+  box-shadow: none;
+}
+
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+select:focus,
+textarea:focus {
+  border: 1.25px solid var(--primary, #4CAF50);
+}
+
+/* form customization -end */
