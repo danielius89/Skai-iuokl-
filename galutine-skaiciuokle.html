@@ -1,0 +1,208 @@
+<style>
+  #row-budas {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  #row-budas .wpcf7-list-item {
+      display: flex;
+      padding: 0 12px 24px;
+      flex-basis: 50%;
+      max-width: 50%;
+      margin-right: 0;
+   
+  }
+  #row-budas input[type=checkbox], #row-budas input[type=radio] {
+      display: inline;
+      font-size: 16px;
+      margin-right: 10px;
+      display: none;
+  }
+  #row-budas .wpcf7-list-item label {
+      padding: 60px 32px !important;
+      display: block;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 1px 8px 16px 2px rgba(58, 58, 58, 0.10);
+      text-align: center;
+      font-size: 2.25rem;
+      font-family: "Open Sans";
+      cursor: pointer;
+  transition: all 200ms ease-out;
+  }
+  #row-budas .wpcf7-list-item label:hover,
+  #row-budas .wpcf7-list-item label.selected {
+  background: linear-gradient(60deg, #4CAF50 0%, #357B38 100%);
+  color: #fff;
+  transition: all 200ms ease-out;
+  }
+  </style>
+  <section class="section" id="section_skaiciuokle">
+    <div class="bg section-bg fill bg-fill bg-loaded">
+      <div class="section-bg-overlay absolute fill"></div>
+    </div>
+    <div class="section-content relative">
+  
+      <!-- ======================== STEP 01 ======================== -->
+  
+            [radio greitas-ar-ne id:row-budas class:klase use_label_element "Greitas skaičiavimas" "Detalus skaičiavimas"]
+  
+  
+  
+      <!-- ======================== STEP 03 ======================== -->
+      <!-- ======================== APDAILOS DARBAI ======================== -->
+      <!-- ======================== GREITAS skaičiavimas ======================== -->
+      [group apdailos-darbai-lentele clear_on_hide]
+      <div></div>
+      Kvadratų skaičius - X
+      [number buto-kvadratura id:firstInput]
+  
+      Kambarių skaičius - Y
+      [number kambariu-skaicius min:1 max:20 id:kambariai class:kambariai]
+      [/group]
+  
+      <!-- ======================== DETALUS skaičiavimas ======================== -->
+      [group detalus-skaiiavimas clear_on_hide]
+  
+  
+      Ar reikia el. instaliacijos? (TAIP - 1, NE - 0)
+      [radio reikia-elektros-instaliacijos use_label_element "Taip" "Ne"]
+      [variable reikia-elektros-instaliacijos-var cf7-hide "reikia-elektros-instaliacijos:" "Taip 1" "Ne 0"]
+  
+      Ar reikia tinkuoti sienas? (TAIP - 1, NE - 0)
+      [radio reikia-tinkuoti-sienas use_label_element "Taip" "Ne"]
+      [variable reikia-tinkuoti-sienas-var cf7-hide "reikia-tinkuoti-sienas:" "Taip 1" "Ne 0"]
+  
+  
+      Lubų apdaila (Gipsas - 16, Tinkavimas - 12, Įtempiamos 0)
+      [select lubu-apdaila "Gipsas" "Tinkavimas" "Įtempiamos"]
+      [variable lubu-apdaila-var cf7-hide "lubu-apdaila:" "Gipsas 16" "Tinkavimas 12" "Įtempiamos 0"]
+  
+      [group ar-reikes-seselines-siules clear_on_hide]
+      Ar reikės šešėlinės siūlės? (Taip = 10, Ne = 0)
+      [radio seseline-siule use_label_element "Taip" "Ne"]
+      [variable seseline-siule-var cf7-hide "seseline-siule:" "Taip 10" "Ne 0"]
+      [/group]
+      [/group]
+  
+      Vonios kambarių skaičius
+      [number vonios-kamb-skaicius min:0]
+  
+      Langų skaičius
+      [number langai min:0]
+  
+      Durų montavimas (Taip = 120, Ne = 0)
+      [radio duru-montavimas use_label_element default:1 "Taip" "Ne"]
+      [variable duru-montavimas-var cf7-hide "duru-montavimas:" "Taip 120" "Ne 0"]
+  
+      Grindys (Laminatas = 10, Vinilas = 14, Parketlentės = 16, Parketas eglute = 20)
+      [select grindys "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
+      [variable grindys-var cf7-hide "grindys:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
+  
+      Santechnika (Taip = 450, Ne = 0)
+      [radio santechnika use_label_element default:1 "Taip" "Ne"]
+      [variable santechnika-var cf7-hide "santechnika:" "Taip 450" "Ne 0"]
+  
+      <!-- ======================== STEP 04 ======================== -->
+  
+      <!-- 
+  <label> Jūsų vardas
+      [text* your-name autocomplete:name] </label>
+  
+  <label> Jūsų el. paštas
+      [email* your-email autocomplete:email] </label>
+  <label> Tema
+      [text* your-subject] </label>
+  
+  <label> Jūsų pranešimas (neprivaloma)
+      [textarea your-message] </label>
+  -->
+  
+      [calculate_button skaiciuoti "Skaičiuoti"]
+  
+      El. instaliacija (pagal atsakytą klausimą "Ar reikia el. instaliacijos")
+      <small>[Taip = 1, Ne = 0] * ((y + 6) * 20 + (x + 5) * 25)</small>
+      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + (
+      buto-kvadratura + 5 ) * 25)"]
+  
+      Sienų tinkavimas
+      <small>[Taip = 1, Ne = 0] * (x * 2.5 * 12) </small>
+      [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
+  
+      Lubų apdaila
+      <small>(x * [Gipsas = 16, Tinkavimas = 12, Įtempiamos = 0]) + ((x - 5) * seseline-siule))</small>
+      [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) *
+      seseline-siule-var)"]
+  
+      Plytelės
+      <small>((x / 10 * 3.2 + x / 10) * 30) * vonios-kamb-skaicius</small>
+      [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) *
+      vonios-kamb-skaicius"]
+  
+      Palangės
+      <small>50 * langu-skaicius</small>
+      [calculation calculation-5 "50 * langai"]
+  
+      Angokraščių glaistymas dažymas
+      <small>langu-skaicius * 6 * 12</small>
+      [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
+  
+      Durys
+      <small>duru-montavimas * y</small>
+      [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
+  
+      Grindys
+      <small>(x - vonios-kamb-skaicius * 5) * grindys
+        <div> </div>
+        Laminatas 10 / Vinilas 14 / Parketlentės 16 / Parketas eglute 20
+      </small>
+      [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
+  
+      Grindjuostės
+      <small>(x - 5) * 10</small>
+      [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
+  
+      Santechnika
+      <small>vonios-kamb-skaicius * [Taip = 450, Ne = 0]</small>
+      [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
+  
+      Papildomi darbai
+      <small> x * 10 </small>
+      [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
+  
+      <div style="height: 20px"></div>
+  
+      <strong>Galutinis rezultatas:</strong>
+      <small>sudedamos visos aukščiau esančios sumos</small>
+      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2
+      "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7
+      + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+  
+      <p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi skaičiuoklės veikimo
+        logika.</p>
+  
+      <!-- [submit "Pateikti"]-->
+    </div>
+  </section>
+  <script>
+    // Get all the radio buttons
+    const radioButtons = document.querySelectorAll('input[name="greitas-ar-ne"]');
+  
+    // Add change event listener to each radio button
+    radioButtons.forEach(radioButton => {
+      radioButton.addEventListener('change', function() {
+        // Remove 'selected' class from all labels
+        const labels = document.querySelectorAll('label');
+        labels.forEach(label => {
+          label.classList.remove('selected');
+        });
+  
+        // Add 'selected' class to the selected label
+        const selectedLabel = this.parentNode;
+        selectedLabel.classList.add('selected');
+      });
+    });
+  </script>
