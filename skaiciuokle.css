@@ -1,0 +1,40 @@
+	/* form customization */
+	.select-resize-ghost,
+	.select2-container .select2-choice,
+	.select2-container .select2-selection,
+	input[type=date],
+	input[type=email],
+	input[type=number],
+	input[type=password],
+	input[type=search],
+	input[type=tel],
+	input[type=text],
+	input[type=url],
+	select,
+	textarea {
+
+	  border-radius: 8px;
+	  border: 1.25px solid var(--gray-light, #E9E9E9);
+	  box-shadow: none;
+	}
+
+	input:hover,
+	select:hover,
+	textarea:hover {
+	  border-radius: 8px;
+	  border: 1.25px solid var(--primary, #4CAF50);
+	  box-shadow: none;
+	}
+
+	input[type=email]:focus,
+	input[type=number]:focus,
+	input[type=password]:focus,
+	input[type=search]:focus,
+	input[type=tel]:focus,
+	input[type=text]:focus,
+	select:focus,
+	textarea:focus {
+	  border: 1.25px solid var(--primary, #4CAF50);
+	}
+
+	/* form customization -end */
