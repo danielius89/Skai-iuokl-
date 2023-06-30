@@ -1,58 +1,80 @@
+/* results wrap */
+.results-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.results-wrap .calc-subtotal {
+    order: 2;
+}
+.results-wrap .calc-total {
+    order: 1;
+}
+.calc-subtotal input.cf7-calculation {
+  cursor: default;
+  border: none !important;
+  margin-bottom: 0;
+  color: #4CAF50;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.18px;
+}
 input[type="checkbox"] {
-  /* Add if not using autoprefixer */
-  -webkit-appearance: none;
-  /* Remove most all native input styles */
-  appearance: none;
-  /* For iOS < 15 */
-  background-color: var(--form-background);
-  /* Not removed via appearance */
-  margin: 0;
+/* Add if not using autoprefixer */
+-webkit-appearance: none;
+/* Remove most all native input styles */
+appearance: none;
+/* For iOS < 15 */
+background-color: var(--form-background);
+/* Not removed via appearance */
+margin: 0;
 
-  font: inherit;
-  color: currentColor;
-  width: 37px;
-  height: 37px;
-  border-radius: 8px;
-  border: 1px solid var(--gray-light, #E9E9E9);
-  display: inline-flex;
-  place-content: center;
+font: inherit;
+color: currentColor;
+width: 37px;
+height: 37px;
+border-radius: 8px;
+border: 1px solid var(--gray-light, #E9E9E9);
+display: inline-flex;
+place-content: center;
 }
 
 .wpcf7-list-item label {
-  display: flex;
+display: flex;
+gap: 16px;
 }
 
 .wpcf7-list-item label .wpcf7-list-item-label {
-  display: inline-flex;
+display: inline-flex;
 }
 
 input[type="checkbox"]::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
-  background-color: white;
-  position: relative;
-  top: 7px;
+content: "";
+width: 18px;
+height: 18px;
+clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+transform: scale(0);
+transition: 120ms transform ease-in-out;
+box-shadow: inset 1em 1em var(--form-control-color);
+/* Windows High Contrast Mode */
+background-color: white;
+position: relative;
+top: 7px;
 }
 
 input[type="checkbox"]:checked::before {
-  transform: scale(1);
+transform: scale(1);
 }
 
 input[type="checkbox"]:checked {
-  transform: scale(1);
-  background-color: #4CAF50;
-  border: 1px solid var(--gray-light, #4CAF50);
+transform: scale(1);
+background-color: #4CAF50;
+border: 1px solid var(--gray-light, #4CAF50);
 }
 
 input[type="checkbox"]:hover {
-  border: 1px solid var(--gray-light, #4CAF50);
+border: 1px solid var(--gray-light, #4CAF50);
 }
+
 
 
 /* form customization */
@@ -95,3 +117,38 @@ textarea:focus {
 }
 
 /* form customization -end */
+.legal {
+font-size: 14px;
+line-height: 19px;
+color: #9da9b4
+}
+.bottom_row_0 .col {
+padding-bottom: 0 !important;
+}
+.pb-0 {
+padding-bottom: 0 !important
+}
+.mb-0 {
+margin-bottom: 0 !important;
+}
+.absolute-footer {
+display: none;
+}
+.header, .header-wrapper {
+transition: none;
+
+}
+.hero-section .section-bg-overlay {
+background: linear-gradient(59.74deg, #4CAF50 0%, #357B38 101.58%);
+}
+.box-shadow-4, .box-shadow-4-hover:hover, .row-box-shadow-4 .col-inner, .row-box-shadow-4-hover .col-inner:hover {
+box-shadow: 1px 8px 16px 2px rgba(58, 58, 58, 0.1);
+}
+.fancy-image {
+position: absolute;
+width: 112px;
+height: 112px;
+top: -47px;
+left: auto;
+right: 24px;
+}
