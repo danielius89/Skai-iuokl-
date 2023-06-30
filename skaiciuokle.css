@@ -137,13 +137,18 @@ display: inline-flex;
 place-content: center;
 }
 
-.wpcf7-list-item label {
+.row-suskaiciuok .wpcf7-checkbox .wpcf7-list-item label {
 display: flex;
 gap: 16px;
+align-items: center;
 }
 
-.wpcf7-list-item label .wpcf7-list-item-label {
+.row-suskaiciuok .wpcf7-checkbox .wpcf7-list-item label .wpcf7-list-item-label {
 display: inline-flex;
+  font-size: 20px;
+  font-family: "Open Sans";
+  line-height: 28px;
+  font-weight: 500;
 }
 
 input[type="checkbox"]::before {
