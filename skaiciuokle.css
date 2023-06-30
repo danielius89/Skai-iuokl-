@@ -9,6 +9,21 @@
 .results-wrap .calc-total {
     order: 1;
 }
+.calc-total input.cf7-calculation {
+  cursor: default;
+  border: none !important;
+  margin-bottom: 0;
+  color: #4CAF50;
+  font-size: 36px;
+font-weight: 600;
+    height: 36px;
+padding-left: 2px;
+}
+.calc-total .wpcf7-form-control-wrap::after {
+content: "€";
+ font-size: 36px;
+font-weight: 600;
+}
 .calc-subtotal input.cf7-calculation {
   cursor: default;
   border: none !important;
@@ -17,6 +32,20 @@
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.18px;
+    height: 18px;
+padding-left: 2px;
+}
+.calc-subtotal .col,
+.calc-total .col {
+padding-bottom: 20px;
+}
+.calc-subtotal .wpcf7-form-control-wrap,
+.calc-total .wpcf7-form-control-wrap{
+  display: flex;
+  align-items: center;
+}
+.calc-subtotal .wpcf7-form-control-wrap::after {
+content: "€";
 }
 input[type="checkbox"] {
 /* Add if not using autoprefixer */
@@ -117,38 +146,3 @@ textarea:focus {
 }
 
 /* form customization -end */
-.legal {
-font-size: 14px;
-line-height: 19px;
-color: #9da9b4
-}
-.bottom_row_0 .col {
-padding-bottom: 0 !important;
-}
-.pb-0 {
-padding-bottom: 0 !important
-}
-.mb-0 {
-margin-bottom: 0 !important;
-}
-.absolute-footer {
-display: none;
-}
-.header, .header-wrapper {
-transition: none;
-
-}
-.hero-section .section-bg-overlay {
-background: linear-gradient(59.74deg, #4CAF50 0%, #357B38 101.58%);
-}
-.box-shadow-4, .box-shadow-4-hover:hover, .row-box-shadow-4 .col-inner, .row-box-shadow-4-hover .col-inner:hover {
-box-shadow: 1px 8px 16px 2px rgba(58, 58, 58, 0.1);
-}
-.fancy-image {
-position: absolute;
-width: 112px;
-height: 112px;
-top: -47px;
-left: auto;
-right: 24px;
-}
