@@ -49,6 +49,14 @@
     background-color: rgb(255, 255, 255);
     border-radius: 16px;
   }
+
+  #section_skaiciuokle h4 {
+    margin-bottom: 26px;
+  }
+
+  #section_skaiciuokle h5 {
+    margin-bottom: 10px;
+  }
 </style>
 <section class="section" id="section_skaiciuokle">
   <div class="bg section-bg fill bg-fill bg-loaded">
@@ -57,14 +65,30 @@
   <div class="section-content relative">
 
     <!-- ======================== STEP 01 ======================== -->
-
+    <!-- ============= 1 column ============= -->
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          <h4>Pasirinkite skaičiavimo būdą:</h4>
+        </div>
+      </div>
+    </div>
     [radio greitas-ar-ne id:row-budas class:klase use_label_element "Greitas skaičiavimas" "Detalus skaičiavimas"]
 
     <!-- ======================== STEP 02 ======================== -->
 
     <!-- ======================== GREITAS skaičiavimas ======================== -->
-    [group apdailos-darbai-lentele clear_on_hide]
     <div></div>
+    <!-- ============= 1 column ============= -->
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          <h4>Supildykite reikalingus duomenis:</h4>
+        </div>
+      </div>
+    </div>
+    <!-- ======================== DETALUS skaičiavimas ======================== -->
+
     <!-- ============= 2 columns ============= -->
     <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
       <div id="col-1915319957" class="col medium-6 small-12 large-6">
@@ -80,9 +104,6 @@
         </div>
       </div>
     </div>
-    [/group]
-
-    <!-- ======================== DETALUS skaičiavimas ======================== -->
     [group detalus-skaiiavimas clear_on_hide]
     <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
       <div id="col-1915319957" class="col medium-6 small-12 large-6">
@@ -174,8 +195,25 @@
   <label> Jūsų pranešimas (neprivaloma)
       [textarea your-message] </label>
   -->
+    <!-- ============= 1 column ============= -->
     <div class="row align-equal">
-      [calculate_button skaiciuoti "Skaičiuoti"]
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          [calculate_button skaiciuoti "Skaičiuoti"]
+        </div>
+      </div>
+    </div>
+
+    <!-- ============= 1 column ============= -->
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner">
+          <h4>Tarpinės sumos:</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row align-equal">
+
       <div></div>
       <div id="col-1229512343" class="col medium-4 small-12 large-4">
         <div class="col-inner">
@@ -383,6 +421,3 @@
     });
   });
 </script>
-<style>
-  
-</style>
