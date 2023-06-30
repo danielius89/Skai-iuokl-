@@ -1,417 +1,89 @@
-<style>
-  #row-budas {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #row-budas .wpcf7-list-item {
-    display: flex;
-    padding: 0 12px 24px;
-    flex-basis: 50%;
-    max-width: 50%;
-    margin-right: 0;
-  }
-
-  #row-budas input[type=checkbox],
-  #row-budas input[type=radio] {
-    display: inline;
-    font-size: 16px;
-    margin-right: 10px;
-    display: none;
-  }
-
-  #row-budas .wpcf7-list-item label {
-    padding: 60px 32px !important;
-    display: block;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 1px 8px 16px 2px rgba(58, 58, 58, 0.10);
-    text-align: center;
-    font-size: 2.25rem;
-    font-family: "Open Sans";
-    cursor: pointer;
-    transition: all 200ms ease-out;
-  }
-
-  #row-budas .wpcf7-list-item label:hover,
-  #row-budas .wpcf7-list-item label.selected {
-    background: linear-gradient(60deg, #4CAF50 0%, #357B38 100%);
-    color: #fff;
-    transition: all 200ms ease-out;
-  }
-
-  .row-tarpine>.col>.col-inner {
-    padding: 16px 16px 16px 16px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 16px;
-  }
-#section_skaiciuokle h4 {
-    margin-bottom: 26px;
-}
-#section_skaiciuokle h5 {
-    margin-bottom: 10px;
-}
-</style>
 <section class="section" id="section_skaiciuokle">
   <div class="bg section-bg fill bg-fill bg-loaded">
     <div class="section-bg-overlay absolute fill"></div>
   </div>
+
   <div class="section-content relative">
-
-    <!-- ======================== STEP 01 ======================== -->
-
-    [radio greitas-ar-ne id:row-budas class:klase use_label_element "Greitas skaičiavimas" "Detalus skaičiavimas"]
-
-    <!-- ======================== STEP 02 ======================== -->
-
-    <!-- ======================== GREITAS skaičiavimas ======================== -->
-    [group apdailos-darbai-lentele clear_on_hide]
-    <div></div>
-    <!-- ============= 1 column ============= -->
+    <!-- ============= 3 columns ============= -->
     <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
-      <div class="col small-12 large-12">
+      <div class="col medium-4 small-12 large-4">
         <div class="col-inner">
-          <h4>Supildykite reikalingus duomenis:</h4>
+
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+
         </div>
       </div>
     </div>
 
-    [/group]
-
-    <!-- ======================== DETALUS skaičiavimas ======================== -->
-    [group detalus-skaiiavimas clear_on_hide]
     <!-- ============= 2 columns ============= -->
     <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
-      <div id="col-1915319957" class="col medium-6 small-12 large-6">
-        <div class="col-inner">
-          <h5>Kambarių skaičius</h5>
-          [number kambariu-skaicius min:1 max:20 id:kambariai class:kambariai]
-        </div>
-      </div>
-      <div id="col-1370121621" class="col medium-6 small-12 large-6">
-        <div class="col-inner">
-          <h5>Bendra kvadratūra</h5>
-          [number buto-kvadratura id:firstInput]
-        </div>
-      </div>
-    </div>
-    <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
-      <div id="col-1915319957" class="col medium-6 small-12 large-6">
-        <div class="col-inner">
-          <h5>Vonios kambarių skaičius</h5>
-          [number vonios-kamb-skaicius min:0]
-        </div>
-      </div>
-      <div id="col-1370121621" class="col medium-6 small-12 large-6">
-        <div class="col-inner">
-          <h5>Langų skaičius</h5>
-          [number langai min:0]
-        </div>
-      </div>
-    </div>
-
-    <!-- ============= 3 columns ============= -->
-    <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
-      <div id="col-1801002021" class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>Ar reikia el. instaliacijos?</h5>
-          [checkbox reikia-elektros-instaliacijos id:row-elektra class:row-elektra use_label_element "Ar reikia el.
-          instaliacijos?"]
-          <!-- [radio reikia-elektros-instaliacijos-backup use_label_element "Taip" "Ne"]-->
-          [variable reikia-elektros-instaliacijos-var cf7-hide "reikia-elektros-instaliacijos:" "Ar reikia el.
-          instaliacijos? 1"]
-        </div>
-      </div>
-      <div id="col-349235255" class="col medium-4 small-12 large-4">
+      <div class="col medium-6 small-12 large-6">
         <div class="col-inner">
 
-          <h5>Ar reikalingi santechnikos darbai?</h5>
-          [checkbox santechnika use_label_element "Ar reikalingi santechnikos darbai?"]
-          [variable santechnika-var cf7-hide "santechnika:" "Ar reikalingi santechnikos darbai? 450"]
         </div>
       </div>
-      <div id="col-1885482017" class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>Ar reikalingas sienų tinkavimas?</h5>
-          [checkbox reikia-tinkuoti-sienas use_label_element "Ar reikia tinkuoti sienas?"]
-          [variable reikia-tinkuoti-sienas-var cf7-hide "reikia-tinkuoti-sienas:" "Ar reikia tinkuoti sienas? 1"]
-        </div>
-      </div>
-    </div>
-    <!-- ============= 3 columns ============= -->
-    <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
-      <div id="col-1801002021" class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>Lubų apdaila</h5>
-          [select lubu-apdaila "Gipsas" "Tinkavimas" "Įtempiamos"]
-          [variable lubu-apdaila-var cf7-hide "lubu-apdaila:" "Gipsas 16" "Tinkavimas 12" "Įtempiamos 0"]
-
-          [group ar-reikes-seselines-siules clear_on_hide]
-
-          <h5>Ar reikės šešėlinės siūlės?</h5>
-          [checkbox seseline-siule use_label_element "Ar reikės šešėlinės siūlės?"]
-          [variable seseline-siule-var cf7-hide "seseline-siule:" "Ar reikės šešėlinės siūlės? 10"]
-          [/group]
-        </div>
-      </div>
-      <div id="col-349235255" class="col medium-4 small-12 large-4">
+      <div class="col medium-6 small-12 large-6">
         <div class="col-inner">
 
-          <h5>Grindys</h5>
-          [select grindys "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
-          [variable grindys-var cf7-hide "grindys:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
-        </div>
-      </div>
-      <div id="col-1885482017" class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>Durų montavimas</h5>
-          [checkbox duru-montavimas use_label_element "Durų montavimas"]
-          [variable duru-montavimas-var cf7-hide "duru-montavimas:" "Durų montavimas 120"]
-        </div>
-      </div>
-    </div>
-    [/group]
-    <!-- ======================== STEP 03 ======================== -->
-
-    <!-- 
-  <label> Jūsų vardas
-      [text* your-name autocomplete:name] </label>
-  
-  <label> Jūsų el. paštas
-      [email* your-email autocomplete:email] </label>
-  <label> Tema
-      [text* your-subject] </label>
-  
-  <label> Jūsų pranešimas (neprivaloma)
-      [textarea your-message] </label>
-  -->
-    <!-- ============= 1 column ============= -->
-    <div class="row align-equal">
-      <div class="col small-12 large-12">
-        <div class="col-inner">
-          [calculate_button skaiciuoti "Skaičiuoti"]
         </div>
       </div>
     </div>
 
     <!-- ============= 1 column ============= -->
-    <div class="row align-equal">
-      <div class="col small-12 large-12">
-        <div class="col-inner">
-          <h4>Tarpinės sumos:</h4>
-        </div>
-      </div>
-    </div>
-    <div class="row align-equal">
-
-      <div></div>
-      <div id="col-1229512343" class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Elektros instaliacija
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div id="col-724535297" class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + (
-                buto-kvadratura + 5 ) * 25)"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Sienų tinkavimas
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Lubų apdaila
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) *
-                seseline-siule-var)"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Plytelės
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) *
-                vonios-kamb-skaicius"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Palangės
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-5 "50 * langai"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Angokraščių glaistymas dažymas
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Durys
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Grindys
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Grindjuostės
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Santechnika
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col medium-4 small-12 large-4">
-        <div class="col-inner">
-          <h5>
-            Papildomi darbai
-          </h5>
-          <div class="row align-equal row-box-shadow-1 row-tarpine">
-            <div class="col small-12 large-12">
-              <div class="col-inner">
-                [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="height: 20px"></div>
-    <div class="row align-equal">
-      <div class="col small-12 large-12">
-        <div class="col-inner">
-          <h4>Bendra suma:</h4>
-        </div>
-      </div>
-    </div>
-
     <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
       <div class="col small-12 large-12">
         <div class="col-inner">
-          [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2
-          "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7
-          + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+
         </div>
       </div>
     </div>
+
+    <!-- ============= 3 columns without background ============= -->
     <div class="row align-equal">
-      <div class="col small-12 large-12">
+      <div class="col medium-4 small-12 large-4">
         <div class="col-inner">
-          <p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi skaičiuoklės veikimo
-            logika.</p>
+
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+
+        </div>
+      </div>
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+
         </div>
       </div>
     </div>
-    <!-- [submit "Pateikti"]-->
+
+    <!-- ============= Tarpinės sumos dizainas  ============= -->
+    <div class="row align-equal">
+      
+      <div class="col medium-4 small-12 large-4">
+        <div class="col-inner">
+          <h5> 
+
+          </h5>
+          <div class="row align-equal row-box-shadow-1 row-tarpine">
+            <div class="col small-12 large-12">
+              <div class="col-inner">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
-<script>
-  // Get all the radio buttons
-  const radioButtons = document.querySelectorAll('input[name="greitas-ar-ne"]');
-
-  // Add change event listener to each radio button
-  radioButtons.forEach(radioButton => {
-    radioButton.addEventListener('change', function () {
-      // Remove 'selected' class from all labels
-      const labels = document.querySelectorAll('label');
-      labels.forEach(label => {
-        label.classList.remove('selected');
-      });
-
-      // Add 'selected' class to the selected label
-      const selectedLabel = this.parentNode;
-      selectedLabel.classList.add('selected');
-    });
-  });
-</script>
