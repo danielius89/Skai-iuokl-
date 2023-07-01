@@ -32,13 +32,13 @@
       <div id="col-1915319957" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <h5>Kambarių skaičius</h5>
-          [number kambariu-skaicius min:1 max:20 id:kambariai class:kambariai]
+          [number kambariu-skaicius2 min:1 max:20 id:kambariai class:kambariai]
         </div>
       </div>
       <div id="col-1370121621" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <h5>Bendra kvadratūra</h5>
-          [number buto-kvadratura id:firstInput]
+          [number buto-kvadratura2 id:firstInput]
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <div id="col-1370121621" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <h5>Bendra kvadratūra</h5>
-          [number buto-kvadratura id:firstInput]
+          [number buto-kvadratura]
         </div>
       </div>
     </div>
@@ -144,7 +144,202 @@
   <label> Jūsų pranešimas (neprivaloma)
       [textarea your-message] </label>
   -->
+    <div class="row align-equal">
+      <div class="col small-12 large-12">
+        <div class="col-inner  text-right" style="margin-right: -20px;">
+          [calculate_button skaiciuoti2 "Skaičiuoti"]
+        </div>
+      </div>
+    </div>
+    <!-- ================== results wrap start ================== -->
+    <div class="results-wrap">
+      <!-- ============= 1 column ============= -->
+      <!-- ================== tarpines sumos wrap start ================== -->
+      <div class="calc-subtotal">
+        <div class="row align-equal">
+          <div class="col small-12 large-12">
+            <div class="col-inner">
+              <h4>Tarpinės sumos:</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row align-equal">
+          <div></div>
+          <div id="col-1229512343" class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Dažymas ir glaistymas: 
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div id="col-724535297" class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation dazymas-glaistymas init:0 min:0 "((( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 3.5 ) + buto-kvadratura2 ) * 15"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Plytelės
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation plyteles init:0 min:0 "( buto-kvadratura2 / 10 * 3.2 + buto-kvadratura2 / 10 ) * 30"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Palangės
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation palanges init:0 min:0 "kambariu-skaicius2 * 50"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Durys
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation durys init:0 min:0 "kambariu-skaicius2 * 120"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Šviestuvai
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation sviestuvai init:0 min:0 "( kambariu-skaicius2 + 6 ) * 20"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Rozetės/jungtukai
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation rozetes init:0 min:0 "( buto-kvadratura2 + 5 ) * 25"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Grindys
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation grindys init:0 min:0 "( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 14"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Plintusai
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation plintusai init:0 min:0 "( buto-kvadratura2 - 5 ) * 10"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Santechnika
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [number santechnika id:secondInput readonly]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+          <div class="col medium-4 small-12 large-4">
+            <div class="col-inner">
+              <h5>
+                Papildomi darbai
+              </h5>
+              <div class="row align-equal row-box-shadow-1 row-tarpine">
+                <div class="col small-12 large-12">
+                  <div class="col-inner">
+                    [calculation papildomi-darbai init:0 min:0 "buto-kvadratura2 * 10"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ================== tarpines sumos wrap end ================== -->
+      <!-- ================== galutines sumos wrap start ================== -->
+      <div class="calc-total">
+        <div class="row align-equal">
+          <div class="col small-12 large-12">
+            <div class="col-inner">
+              <h4>Bendra suma (greitoji):</h4>
+            </div>
+          </div>
+        </div>
 
+        <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
+          <div class="col small-12 large-12">
+            <div class="col-inner">
+              [calculation galutinis-rezultatas init:0 min:0 precision:2 "dazymas-glaistymas + plyteles + palanges + durys + sviestuvai + rozetes + grindys + plintusai + santechnika + papildomi-darbai"]
+            </div>
+          </div>
+        </div>
+        <div class="row align-equal">
+          <div class="col small-12 large-12">
+            <div class="col-inner">
+              <p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi skaičiuoklės
+                veikimo
+                logika.</p>
+            </div>
+          </div>
+        </div>
+        <!-- [submit "Pateikti"]-->
+      </div>
+      <!-- ================== galutines sumos wrap end ================== -->
+    </div>
+    <!-- ================== results wrap end ================== -->
     <!-- end ================================================ -->
     <!-- ======================== STEP 03 - GREITASIS ======================== -->
     <!-- ================================================ -->
@@ -342,7 +537,7 @@
         <div class="row align-equal">
           <div class="col small-12 large-12">
             <div class="col-inner">
-              <h4>Bendra suma:</h4>
+              <h4>Bendra suma (detali):</h4>
             </div>
           </div>
         </div>
