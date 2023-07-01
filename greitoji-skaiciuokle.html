@@ -1,0 +1,63 @@
+<!-- ======================== STEP 01 ======================== -->
+[radio greitas-ar-ne id:aidi class:klase use_label_element default:1 "Greitas skaičiavimas"]
+<!-- [radio greitas-ar-ne-backup id:aidi class:klase use_label_element default:1 "Greitas skaičiavimas" "Detalus skaičiavimas"]-->
+
+<!-- ======================== STEP 02 ======================== -->
+<!-- ======================== GREITAS ======================== -->
+<div></div>
+Kvadratų skaičius
+[number buto-kvadratura2 id:firstInput]
+
+Kambarių skaičius
+[number kambariu-skaicius2 min:1 max:20 id:kambariai class:kambariai]
+<!-- ======================== DETALUS ======================== -->
+
+Įrengimas
+<!-- [select_custom irengimo-klase "0|Pasirinkti" "100|Ekonominis" "200|Vidutinis" "300|Premium"] -->
+<!-- ======================== STEP 03 ======================== -->
+<!-- ======================== APDAILOS DARBAI ======================== -->
+
+<!-- ======================== STEP 04 ======================== -->
+
+[calculate_button skaiciuoti2 "Skaičiuoti"]
+<div></div>
+Dažymas ir glaistymas:  
+[calculation dazymas-glaistymas init:0 min:0 "((( buto-kvadratura - buto-kvadratura / 10 ) * 3.5 ) + buto-kvadratura ) * 15"]
+
+Plytelės: 
+[calculation plyteles init:0 min:0 "( buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10 ) * 30"]
+
+Palangės:
+[calculation palanges init:0 min:0 "kambariu-skaicius * 50"]
+
+Durys: 
+[calculation durys init:0 min:0 "kambariu-skaicius * 120"]
+
+Šviestuvai: 
+[calculation sviestuvai init:0 min:0 "( kambariu-skaicius + 6 ) * 20"]
+
+Rozetės/jungtukai: 
+[calculation rozetes init:0 min:0 "( buto-kvadratura + 5 ) * 25"]
+
+Grindys:
+[calculation grindys init:0 min:0 "( buto-kvadratura - buto-kvadratura / 10 ) * 14"]
+
+Plintusai:
+[calculation plintusai init:0 min:0 "( buto-kvadratura - 5 ) * 10"]
+
+Santechnika
+[number santechnika id:secondInput readonly]
+
+<div style="height: 20px"></div>
+<br><br>
+Papildomi darbai  :
+<small>x * 10 </small>
+[calculation papildomi-darbai init:0 min:0 "buto-kvadratura * 10"]
+
+<strong>Galutinis rezultatas:</strong>
+<small>dazymas-glaistymas + plyteles + palanges + durys + sviestuvai + rozetes + grindys + plintusai + santechnika + papildomi-darbai</small>
+[calculation galutinis-rezultatas init:0 min:0 precision:2 "dazymas-glaistymas + plyteles + palanges + durys + sviestuvai + rozetes + grindys + plintusai + santechnika + papildomi-darbai"]
+
+<p><b>PASTABA:</b> Formulės šiuo metu paliktos testavimo tikslais, kad aiškiai matytųsi visą skaičiuoklės veikimo logika.</p>
+
+<!-- [submit "Pateikti"]-->

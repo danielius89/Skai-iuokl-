@@ -14,10 +14,6 @@
       </div>
     </div>
     [radio greitas-ar-ne id:row-budas class:klase use_label_element "Greitas skaičiavimas" "Detalus skaičiavimas"]
-
-    <!-- ======================== STEP 02 ======================== -->
-
-    <!-- ======================== GREITAS skaičiavimas ======================== -->
     <div></div>
     <!-- ============= 1 column ============= -->
     <div class="row align-equal">
@@ -27,6 +23,26 @@
         </div>
       </div>
     </div>
+    <!-- ======================== STEP 02 ======================== -->
+
+    <!-- ======================== GREITAS skaičiavimas ======================== -->
+    <!-- ============= 2 columns ============= -->
+    [group greitasis-skaiciavimas clear_on_hide]
+    <div class="row align-equal row-box-shadow-1 row-suskaiciuok">
+      <div id="col-1915319957" class="col medium-6 small-12 large-6">
+        <div class="col-inner">
+          <h5>Kambarių skaičius</h5>
+          [number kambariu-skaicius min:1 max:20 id:kambariai class:kambariai]
+        </div>
+      </div>
+      <div id="col-1370121621" class="col medium-6 small-12 large-6">
+        <div class="col-inner">
+          <h5>Bendra kvadratūra</h5>
+          [number buto-kvadratura id:firstInput]
+        </div>
+      </div>
+    </div>
+    [/group]
     <!-- ======================== DETALUS skaičiavimas ======================== -->
     [group detalus-skaiiavimas clear_on_hide]
     <!-- ============= 2 columns ============= -->
@@ -113,8 +129,9 @@
       </div>
     </div>
     [/group]
-    <!-- ======================== STEP 03 ======================== -->
-
+    <!-- ================================================ -->
+    <!-- ======================== STEP 03 - GREITASIS ======================== -->
+    <!-- ================================================ -->
     <!-- 
   <label> Jūsų vardas
       [text* your-name autocomplete:name] </label>
@@ -127,6 +144,14 @@
   <label> Jūsų pranešimas (neprivaloma)
       [textarea your-message] </label>
   -->
+
+    <!-- end ================================================ -->
+    <!-- ======================== STEP 03 - GREITASIS ======================== -->
+    <!-- ================================================ -->
+
+    <!-- start ================================================ -->
+    <!-- ======================== STEP 03 - DETALIOJI ======================== -->
+    <!-- ================================================ -->
     <!-- ============= 1 column ============= -->
     <div class="row align-equal">
       <div class="col small-12 large-12">
@@ -347,6 +372,9 @@
       <!-- ================== galutines sumos wrap end ================== -->
     </div>
     <!-- ================== results wrap end ================== -->
+    <!-- end ================================================ -->
+    <!-- ======================== STEP 03 - DETALIOJI ======================== -->
+    <!-- ================================================ -->
   </div>
 </section>
 <script>
