@@ -1,3 +1,23 @@
+.steps-form .steps-row .steps-step::before {
+	content: "";
+	position: absolute;
+	top: 34px;
+	left: calc(50% - 100px);
+	width: 200px;
+	font-size: 14px;
+	color: #616161;
+	font-style: normal;
+	font-weight: 400;
+}
+.steps-form .steps-row .steps-step:nth-child(1)::before {
+	content: "Skaičiavimo būdas";
+}
+.steps-form .steps-row .steps-step:nth-child(2)::before {
+	content: "Reikalingi duomenys";
+}
+.steps-form .steps-row .steps-step:nth-child(3)::before {
+	content: "Rezultatai";
+}
 /* calc icons */
 img.calc-icon {
 	margin-bottom: 16px;
