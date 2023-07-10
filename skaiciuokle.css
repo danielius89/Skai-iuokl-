@@ -1,3 +1,8 @@
+/* calc icons */
+img.calc-icon {
+	margin-bottom: 16px;
+  width: 40px;
+}
 /* stilistiniai CSS */
 #row-budas {
   display: flex;
