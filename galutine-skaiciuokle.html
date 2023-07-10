@@ -35,15 +35,14 @@
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-7.svg" alt="Kambarių skaičius" class="calc-icon">
           <h5>Kambarių skaičius</h5>
-          [number* kambariu-skaicius2 min:1 max:20 id:kambariai class:kambariai]
-
+          [number* kambariu-skaicius2 min:0 max:20 id:kambariai class:kambariai "0"]
         </div>
       </div>
       <div id="col-1370121621" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-8.svg" alt="Bendra kvadratūra" class="calc-icon">
           <h5>Bendra kvadratūra</h5>
-          [number* buto-kvadratura2 id:firstInput]
+          [number* buto-kvadratura2 min:0 max:999 id:firstInput "0"]
         </div>
       </div>
     </div>
@@ -56,14 +55,15 @@
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-7.svg" alt="Kambarių skaičius" class="calc-icon">
           <h5>Kambarių skaičius</h5>
-          [number* kambariu-skaicius min:1 max:20 id:kambariai class:kambariai]
+          [number* kambariu-skaicius min:0 max:20 id:kambariai class:kambariai "0"]
         </div>
       </div>
       <div id="col-1370121621" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-8.svg" alt="Bendra kvadratūra" class="calc-icon">
           <h5>Bendra kvadratūra</h5>
-          [number* buto-kvadratura]
+          [number* buto-kvadratura min:0 max:999 "0"]
+
         </div>
       </div>
     </div>
@@ -72,14 +72,14 @@
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-9.svg" alt="Vonios kambarių skaičius" class="calc-icon">
           <h5>Vonios kambarių skaičius</h5>
-          [number* vonios-kamb-skaicius min:0]
+          [number* vonios-kamb-skaicius min:0 "0"]
         </div>
       </div>
       <div id="col-1370121621" class="col medium-6 small-12 large-6">
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-10.svg" alt="Langų skaičius" class="calc-icon">
           <h5>Langų skaičius</h5>
-          [number* langai min:0]
+          [number* langai min:0 "0"]
         </div>
       </div>
     </div>
@@ -115,8 +115,8 @@
           <h5>Lubų apdaila</h5>
           [select lubu-apdaila "Gipsas" "Tinkavimas" "Įtempiamos"]
           [variable lubu-apdaila-var cf7-hide "lubu-apdaila:" "Gipsas 16" "Tinkavimas 12" "Įtempiamos 0"]
-          <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-15.svg" alt="Ar reikės šešėlinės siūlės?" class="calc-icon" style="margin-bottom: 6px; margin-top: 16px">
           [group ar-reikes-seselines-siules clear_on_hide]
+          <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-15.svg" alt="Ar reikės šešėlinės siūlės?" class="calc-icon" style="margin-bottom: 6px; margin-top: 16px">
           [checkbox seseline-siule use_label_element "Ar reikės šešėlinės siūlės?"]
           [variable seseline-siule-var cf7-hide "seseline-siule:" "Ar reikės šešėlinės siūlės? 10"]
           [/group]
@@ -126,8 +126,8 @@
         <div class="col-inner">
           <img src="https://devslate.com/suskaiciuok/wp-content/uploads/2023/07/Asset-16.svg" alt="Grindys" class="calc-icon">
           <h5>Grindys</h5>
-          [select grindys "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
-          [variable grindys-var cf7-hide "grindys:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
+          [select grindys2 "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
+          [variable grindys-var cf7-hide "grindys2:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
         </div>
       </div>
       <div id="col-1885482017" class="col medium-6 small-12 large-4">
@@ -494,8 +494,7 @@
               <div class="row align-equal row-box-shadow-1 row-tarpine">
                 <div class="col small-12 large-12">
                   <div class="col-inner">
-                    [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) *
-                    grindys-var"]
+                    [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
                   </div>
                 </div>
               </div>
@@ -560,10 +559,7 @@
           <div class="col small-12 large-12">
             <div class="col-inner">
               [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0
-              precision:2
-              "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 +
-              calculation-7
-              + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+              precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
             </div>
           </div>
         </div>
