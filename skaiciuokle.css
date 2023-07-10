@@ -1,3 +1,23 @@
+.uacf7-steps.steps-form::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+/* calc error design */
+.wpcf7 .wpcf7-not-valid-tip {
+	background-color: #4caf50;
+	border-radius: 7px;
+	color: #fff;
+	font-size: 14px;
+	padding: 6px 16px;
+}
+.wpcf7 .wpcf7-not-valid-tip::after {
+	border: 8px solid rgba(136,183,213,0);
+	border-bottom-color: #4caf50;
+
+}
 .steps-form .steps-row .steps-step::before {
 	content: "";
 	position: absolute;
@@ -8,6 +28,10 @@
 	color: #616161;
 	font-style: normal;
 	font-weight: 400;
+}
+.uacf7-prev, .uacf7-next, .wpcf7-submit {
+  text-transform: unset;
+	padding: 0 16px;
 }
 .steps-form .steps-row .steps-step:nth-child(1)::before {
 	content: "Skaičiavimo būdas";
@@ -100,6 +124,41 @@ line-height: 19px;
   #section_skaiciuokle h5 {
     margin-bottom: 10px;
   }
+
+@media(max-width:849px) {
+
+#row-budas .wpcf7-list-item label {
+  font-size: 1.75rem;
+}
+}
+@media(max-width:549px) {
+	#row-budas .wpcf7-list-item label {
+  font-size: 1.5rem;
+}
+		#row-budas .wpcf7-list-item {
+  display: flex;
+  padding: 0 12px 24px;
+  flex-basis: 100%;
+  max-width: 100%;
+  margin-right: 0;
+}
+}
+@media (max-width: 576px) {
+	.steps-form .steps-row {
+  display: table-row;
+}
+.steps-form .steps-row .steps-step {
+  float: none;
+}
+.steps-form .steps-row .steps-step::before {
+	top: 34px;
+	left: calc(50% - 50px);
+	width: 100px;
+	line-height: 16px;
+	height: 40px;
+	z-index: 1;
+}	
+}
 /* stilistiniai css - end */
 
 input[type="button"].wpcf7-calculate_button  {
