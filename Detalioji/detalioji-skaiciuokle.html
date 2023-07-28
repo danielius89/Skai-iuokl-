@@ -1,0 +1,96 @@
+<!-- ======================== STEP 02 ======================== -->
+[uacf7_step_start uacf7_step_start-2 "Step 2"]
+<!-- ============= 1 column ============= -->
+<h4>Supildykite reikalingus duomenis:</h4>
+<!-- ======================== GREITAS skaičiavimas ======================== -->
+<h5>Kambarių skaičius</h5>
+[number* kambariu-skaicius2 min:0 max:20 id:kambariai class:kambariai "0"]
+
+<h5>Bendra kvadratūra</h5>
+[number* buto-kvadratura2 min:0 max:999 id:firstInput "0"]
+
+[uacf7_step_end end]
+[uacf7_step_start uacf7_step_start-3 "Step 3"]
+<!-- ================================================ -->
+<!-- ======================== STEP 03 - GREITASIS ======================== -->
+<!-- ================================================ -->
+[calculate_button skaiciuoti2 cf7-hide autocalc "Skaičiuoti"]
+
+<!-- ================== results wrap start ================== -->
+<div class="results-wrap">
+  <!-- ================== tarpines sumos wrap start ================== -->
+  <h4>Tarpinės sumos:</h4>
+  <h5> Dažymas ir glaistymas: </h5>
+
+  [calculation dazymas-glaistymas init:0 min:0 "((( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 3.5 ) +
+  buto-kvadratura2 ) * 15"]
+
+  <h5> Plytelės </h5>
+  [calculation plyteles init:0 min:0 "( buto-kvadratura2 / 10 * 3.2 + buto-kvadratura2 / 10 ) * 30"]
+
+  <h5> Palangės </h5>
+
+  [calculation palanges init:0 min:0 "kambariu-skaicius2 * 50"]
+
+  <h5>
+    Durys
+  </h5>
+
+  [calculation durys init:0 min:0 "kambariu-skaicius2 * 120"]
+
+  <h5>
+    Šviestuvai
+  </h5>
+  [calculation sviestuvai init:0 min:0 "( kambariu-skaicius2 + 6 ) * 20"]
+
+  <h5> Rozetės/jungtukai </h5>
+
+  [calculation rozetes init:0 min:0 "( buto-kvadratura2 + 5 ) * 25"]
+
+  <h5> Grindys </h5>
+  [calculation grindys init:0 min:0 "( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 14"]
+
+  <h5> Plintusai </h5>
+  [calculation plintusai init:0 min:0 "( buto-kvadratura2 - 5 ) * 10"]
+
+  <h5> Santechnika </h5>
+  [number santechnika2 id:secondInput readonly]
+
+  <h5> Papildomi darbai </h5>
+  [calculation papildomi-darbai init:0 min:0 "buto-kvadratura2 * 10"]
+</div>
+<!-- ================== tarpines sumos wrap end ================== -->
+<!-- ================== galutines sumos wrap start ================== -->
+<div class="calc-total">
+  <h4>Bendra suma:</h4>
+  [calculation galutinis-rezultatas2 init:0 min:0 precision:2 "dazymas-glaistymas + plyteles + palanges + durys +   sviestuvai + rozetes + grindys + plintusai + santechnika2 + papildomi-darbai"]
+  <p class="legal">*Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
+</div>
+<!-- ================== galutines sumos wrap end ================== -->
+<!-- ================== results wrap end ================== -->
+<!-- end ================================================ -->
+<!-- ======================== STEP 03 - GREITASIS ======================== -->
+<!-- ================================================ -->
+
+[uacf7_step_end end]
+</div>
+</section>
+<script>
+  // Get all the radio buttons
+  const radioButtons = document.querySelectorAll('input[name="greitas-ar-ne"]');
+
+  // Add change event listener to each radio button
+  radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', function () {
+      // Remove 'selected' class from all labels
+      const labels = document.querySelectorAll('label');
+      labels.forEach(label => {
+        label.classList.remove('selected');
+      });
+
+      // Add 'selected' class to the selected label
+      const selectedLabel = this.parentNode;
+      selectedLabel.classList.add('selected');
+    });
+  });
+</script>
