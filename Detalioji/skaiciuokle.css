@@ -1,4 +1,13 @@
 /* PHASE 2 of calculators css */
+.wpcf7-checkbox .wpcf7-list-item-label {
+	font-family: Open Sans;
+	font-size: 1.1em;
+	display: inline-flex;
+	align-items: center;
+	padding-left: 15px;
+	top: -3px;
+	position: relative;
+}
 .num-wrap {
 	border-bottom: 1px solid #eee;
 	margin-bottom: 8px;
@@ -224,18 +233,16 @@ input[type="checkbox"] {
   background-color: var(--form-background);
   /* Not removed via appearance */
   margin: 0;
-
   font: inherit;
   color: currentColor;
-  width: 37px;
-  height: 37px;
-  border-radius: 8px;
+	width: 26px;
+	height: 26px;
+	border-radius: 4px;
   border: 1px solid var(--gray-light, #E9E9E9);
   display: inline-flex;
   place-content: center;
-  min-width: 37px
+  min-width: 26px
 }
-
 .row-suskaiciuok .wpcf7-checkbox .wpcf7-list-item label {
   display: flex;
   gap: 16px;
@@ -249,19 +256,18 @@ input[type="checkbox"] {
   line-height: 28px;
   font-weight: 500;
 }
-
 input[type="checkbox"]::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
+	content: "";
+	width: 14px;
+	height: 14px;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--form-control-color);
   /* Windows High Contrast Mode */
-  background-color: white;
-  position: relative;
-  top: 7px;
+	background-color: white;
+	position: relative;
+	top: 4px;
 }
 
 input[type="checkbox"]:checked::before {
@@ -294,14 +300,21 @@ input[type=text],
 input[type=url],
 select,
 textarea {
+  border-radius: 8px;
+  border: 1.25px solid var(--gray-light, #E9E9E9);
+  box-shadow: none;
 }
 
 input:hover,
 select:hover,
 textarea:hover {
-
+  border-radius: 8px;
+  border: 1.25px solid var(--primary, #4CAF50);
+  box-shadow: none;
 }
-
+input[type="checkbox"]:hover {
+  border-radius: 4px;
+}
 input[type=email]:focus,
 input[type=number]:focus,
 input[type=password]:focus,
@@ -310,7 +323,7 @@ input[type=tel]:focus,
 input[type=text]:focus,
 select:focus,
 textarea:focus {
-
+  border: 1.25px solid var(--primary, #4CAF50);
 }
 /* form customization -end */
 .legal {
