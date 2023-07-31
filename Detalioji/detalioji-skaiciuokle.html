@@ -1,6 +1,8 @@
 <!-- ======================== STEP 01 ======================== -->
 [uacf7_step_start uacf7_step_start-1 "Reikalingi duomenys"]
-<h4>Supildykite reikalingus duomenis:</h4>
+<div style="height: 50px"> </div>
+<h4 class="text-center">Supildykite reikalingus duomenis</h4>
+<div style="height: 15px"> </div>
 
 <h5>Kambarių skaičius</h5>
 [number* kambariu-skaicius min:0 max:20 id:kambariai class:kambariai "0"]
@@ -48,54 +50,68 @@
 <div class="results-wrap">
   <!-- ================== tarpines sumos wrap start ================== -->
   <div class="calc-subtotal">
-    <h4>Tarpinės sumos:</h4>
-
-    <h5> Elektros instaliacija </h5>
-    [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + ( buto-kvadratura + 5 ) * 25)"]
-
-    <h5> Sienų tinkavimas </h5>
-    [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
-
-    <h5> Lubų apdaila </h5>
-    [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) * seseline-siule-var)"]
-
-    <h5> Plytelės </h5>
-    [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) * vonios-kamb-skaicius"]
-
-    <h5> Palangės </h5>
-    [calculation calculation-5 "50 * langai"]
-
-    <h5> Angokraščių glaistymas dažymas </h5>
-    [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
-
-    <h5> Durys </h5>
-    [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
-
-    <h5> Grindys </h5>
-    [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
-
-    <h5> Grindjuostės </h5>
-    [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
-
-    <h5> Santechnika </h5>
-    [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
-
-    <h5> Papildomi darbai </h5>
-    [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
+    <div style="height: 30px"> </div>
+    <h4 class="text-center">Tarpinės sumos</h4>
+    <div style="height: 15px"> </div>
+    <div class="num-wrap">
+      <h5> Elektros instaliacija </h5>
+      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + ( buto-kvadratura + 5 ) * 25)"]
+    </div>
+    <div class="num-wrap">
+      <h5> Sienų tinkavimas </h5>
+      [calculation calculation-2 init:0 min:0 "reikia-tinkuoti-sienas-var * (buto-kvadratura * 2.5 * 12)"]
+    </div>
+    <div class="num-wrap">
+      <h5> Lubų apdaila </h5>
+      [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) * seseline-siule-var)"]
+    </div>
+    <div class="num-wrap">
+      <h5> Plytelės </h5>
+      [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) * vonios-kamb-skaicius"]
+    </div>
+    <div class="num-wrap">
+      <h5> Palangės </h5>
+      [calculation calculation-5 "50 * langai"]
+    </div>
+    <div class="num-wrap">
+      <h5> Angokraščių glaistymas dažymas </h5>
+      [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
+    </div>
+    <div class="num-wrap">
+      <h5> Durys </h5>
+      [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
+    </div>
+    <div class="num-wrap">
+      <h5> Grindys </h5>
+      [calculation calculation-8 init:0 min:0 "(buto-kvadratura - vonios-kamb-skaicius * 5) * grindys-var"]
+    </div>
+    <div class="num-wrap">
+      <h5> Grindjuostės </h5>
+      [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
+    </div>
+    <div class="num-wrap">
+      <h5> Santechnika </h5>
+      [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
+    </div>
+    <div class="num-wrap">
+      <h5> Papildomi darbai </h5>
+      [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
+    </div>
   </div>
   <!-- ================== tarpines sumos wrap end ================== -->
   <!-- ================== galutines sumos wrap start ================== -->
   <div class="calc-total">
-
-    <h4>Bendra suma:</h4>
-    [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
-    <p class="legal">*Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
+    <div style="height: 50px"> </div>
+    <div class="num-wrap">
+      <h4>Bendra suma</h4>
+      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+    </div>
+    <p class="legal text-right">Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
   </div>
   <!-- ================== galutines sumos wrap end ================== -->
 </div>
 <!-- ================== results wrap end ================== -->
 <!-- end ================================================ -->
-
 [uacf7_step_end end]
 <script>
   // Get all the radio buttons
