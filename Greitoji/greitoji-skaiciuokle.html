@@ -1,7 +1,7 @@
 <!-- ======================== STEP 02 ======================== -->
 [uacf7_step_start uacf7_step_start-2 "Step 2"]
 <!-- ============= 1 column ============= -->
-<div style="height: 30px"> </div>
+<div style="height: 50px"> </div>
 <h4 class="text-center">Supildykite reikalingus duomenis</h4>
 <div style="height: 15px"> </div>
 <!-- ======================== GREITAS skaičiavimas ======================== -->
@@ -27,9 +27,8 @@
     <div style="height: 15px"> </div>
 
     <div class="num-wrap">
-      <h5> Dažymas ir glaistymas: </h5>
-      [calculation dazymas-glaistymas init:0 min:0 "((( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 3.5 ) +
-      buto-kvadratura2 ) * 15"]
+      <h5> Dažymas ir glaistymas </h5>
+      [calculation dazymas-glaistymas init:0 min:0 "((( buto-kvadratura2 - buto-kvadratura2 / 10 ) * 3.5 ) + buto-kvadratura2 ) * 15"]
     </div>
     <div class="num-wrap">
       <h5> Plytelės </h5>
@@ -72,12 +71,13 @@
   <!-- ================== tarpines sumos wrap end ================== -->
   <!-- ================== galutines sumos wrap start ================== -->
   <div class="calc-total">
-<div class="num-wrap">
-    <h4>Bendra suma:</h4>
-    [calculation galutinis-rezultatas2 init:0 min:0 precision:2 "dazymas-glaistymas + plyteles + palanges + durys +
-    sviestuvai + rozetes + grindys + plintusai + santechnika2 + papildomi-darbai"]
-    <p class="legal">*Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
-</div>
+    <div style="height: 50px"> </div>
+    <div class="num-wrap">
+      <h4>Bendra suma</h4>
+      [calculation galutinis-rezultatas2 init:0 min:0 precision:2 "dazymas-glaistymas + plyteles + palanges + durys + sviestuvai + rozetes + grindys + plintusai + santechnika2 + papildomi-darbai"]
+    </div>
+    <p class="legal text-right">Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
+
   </div>
   <!-- ================== galutines sumos wrap end ================== -->
   <!-- ================== results wrap end ================== -->
