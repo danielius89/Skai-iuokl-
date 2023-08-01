@@ -36,12 +36,24 @@
 
 [group ar-reikes-seselines-siules clear_on_hide]
 [checkbox seseline-siule use_label_element "Ar reikės šešėlinės siūlės?"]
-[variable seseline-siule-var cf7-hide "seseline-siule:" "Ar reikės šešėlinės siūlės? 10"]
+[variable seseline-siule-var cf7-hide "seseline-siule:" "Ar reikės šešėlinės siūlės? 1"]
 [/group]
 
 <h5>Grindys</h5>
 [select grindys2 "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
 [variable grindys-var cf7-hide "grindys2:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
+
+[checkbox vamzdynas use_label_element "Ar reikia keisti vamzdyną?"]
+[variable vamzdynas-var cf7-hide "vamzdynas:" "Ar reikia keisti vamzdyną? 350"]
+
+[checkbox radiatorius use_label_element "Ar keičiami radiatoriai?"]
+[variable radiatorius-var cf7-hide "radiatorius:" "Ar keičiami radiatoriai? 100"]
+
+[checkbox sujungti-wc-vonia use_label_element "Ar norite sujungti WC ir vonios kambarius?"]
+[variable sujungti-wc-vonia-var cf7-hide "sujungti-wc-vonia:" "Ar norite sujungti WC ir vonios kambarius? 500"]
+
+[checkbox lyginti-grindis use_label_element "Ar reikia lyginti grindis?"]
+[variable lyginti-grindis-var cf7-hide "lyginti-grindis:" "Ar reikia lyginti grindis? 12"]
 
 [calculate_button skaiciuoti2 cf7-hide autocalc "Skaičiuoti"]
 [uacf7_step_end end]
@@ -57,7 +69,7 @@
     <div style="height: 15px"> </div>
     <div class="num-wrap">
       <h5> Elektros instaliacija </h5>
-      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + ( buto-kvadratura + 5 ) * 25)"]
+      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + ( buto-kvadratura + 5 ) * 25) + 200"]
     </div>
     <div class="num-wrap">
       <h5> Sienų tinkavimas </h5>
@@ -65,10 +77,14 @@
     </div>
     <div class="num-wrap">
       <h5> Lubų apdaila </h5>
-      [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + ((buto-kvadratura - 5) * seseline-siule-var)"]
+      [calculation calculation-3 init:0 min:0 "(lubu-apdaila-var * buto-kvadratura) + (seseline-siule-var * ((buto-kvadratura - 5) * 10)) "]
     </div>
     <div class="num-wrap">
       <h5> Plytelės </h5>
+      [calculation calculation-3-1 "(((buto-kvadratura - buto-kvadratura / 10  * vonios-kamb-skaicius) * 3) + buto-kvadratura) * 15"]    
+    </div>
+    <div class="num-wrap">
+      <h5> Sienų ir lubų dažymas </h5>
       [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) * vonios-kamb-skaicius"]
     </div>
     <div class="num-wrap">
@@ -81,7 +97,7 @@
     </div>
     <div class="num-wrap">
       <h5> Durys </h5>
-      [calculation calculation-7 init:0 min:0 "duru-montavimas-var * kambariu-skaicius"]
+      [calculation calculation-7 init:0 min:0 "(kambariu-skaicius + vonios-kamb-skaicius + 1) * duru-montavimas-var"]
     </div>
     <div class="num-wrap">
       <h5> Grindys </h5>
@@ -96,9 +112,30 @@
       [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
     </div>
     <div class="num-wrap">
+      <h5> Vazmdyų keitimas</h5>
+      [calculation calculation-12 init:0 min:0 "(vonios-kamb-skaicius + 1) * vamzdynas-var"]
+    </div>
+    <div class="num-wrap">
+      <h5> Radiatorių keitimas </h5>
+      [calculation calculation-13 init:0 min:0 "(kambariu-skaicius + 1) * radiatorius-var"]
+    </div>
+    <div class="num-wrap">
+      <h5>WC ir vonios kambarių sujungimas</h5>
+      [calculation calculation-14 init:0 min:0 "vonios-kamb-skaicius * sujungti-wc-vonia-var"]
+    </div>
+    <div class="num-wrap">
+      <h5>Grindų lyginimas</h5>
+      [calculation calculation-15 init:0 min:0 "buto-kvadratura * lyginti-grindis-var "]
+    </div>
+    <div class="num-wrap">
+      <h5>Remonto pasiruošimo darbai: senų sienų, lubų, plytelių demontavimas</h5>
+      [calculation calculation-16 init:0 min:0 "buto-kvadratura * 12 + (buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 10 * vonios-kamb-skaicius"]
+    </div>
+    <div class="num-wrap">
       <h5> Papildomi darbai </h5>
       [calculation calculation-11 init:0 min:0 "buto-kvadratura * 10"]
     </div>
+
   </div>
   <!-- ================== tarpines sumos wrap end ================== -->
   <!-- ================== galutines sumos wrap start ================== -->
@@ -106,7 +143,7 @@
     <div style="height: 50px"> </div>
     <div class="num-wrap">
       <h4>Bendra suma</h4>
-      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11"]
+      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11 + calculation-12 + calculation-13 + calculation-14 + calculation-15 + calculation-16 + calculation-3-1"]
     </div>
     <p class="legal text-right">Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
   </div>
