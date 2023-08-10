@@ -16,6 +16,9 @@
 <h5>Langų skaičius</h5>
 [number* langai min:1 max:50 "0"]
 
+<h5>Aukštų skaičius</h5>
+[number* aukstai min:1 max:50 "0"]
+
 <div style="height: 5px"> </div>
 [checkbox reikia-elektros-instaliacijos id:row-elektra class:row-elektra use_label_element "Ar reikia el.instaliacijos?"]
 [variable reikia-elektros-instaliacijos-var cf7-hide "reikia-elektros-instaliacijos:" "Ar reikia el.instaliacijos? 1"]
@@ -43,14 +46,14 @@
 [select grindys2 "Laminatas" "Vinilas" "Parketlentės" "Parketas eglute"]
 [variable grindys-var cf7-hide "grindys2:" "Laminatas 10" "Vinilas 14" "Parketlentės 16" "Parketas eglute 20"]
 
-[checkbox vamzdynas use_label_element "Ar reikia keisti vamzdyną?"]
-[variable vamzdynas-var cf7-hide "vamzdynas:" "Ar reikia keisti vamzdyną? 350"]
+[checkbox rekup use_label_element "Ar reikia rekuperatoriaus?"]
+[variable rekup-var cf7-hide "vamzdynas:" "Ar reikia rekuperatoriaus? 1000"]
 
 [checkbox radiatorius use_label_element "Ar keičiami radiatoriai?"]
 [variable radiatorius-var cf7-hide "radiatorius:" "Ar keičiami radiatoriai? 100"]
 
-[checkbox sujungti-wc-vonia use_label_element "Ar norite sujungti WC ir vonios kambarius?"]
-[variable sujungti-wc-vonia-var cf7-hide "sujungti-wc-vonia:" "Ar norite sujungti WC ir vonios kambarius? 500"]
+[checkbox kolektorines use_label_element "Ar reikia surinkti kolektorines?"]
+[variable kolektorines-var cf7-hide "kolektorines:" "Ar reikia surinkti kolektorines? 200"]
 
 [checkbox lyginti-grindis use_label_element "Ar reikia lyginti grindis?"]
 [variable lyginti-grindis-var cf7-hide "lyginti-grindis:" "Ar reikia lyginti grindis? 12"]
@@ -69,7 +72,7 @@
     <div style="height: 15px"> </div>
     <div class="num-wrap">
       <h5> Elektros instaliacija </h5>
-      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 6 ) * 20 + ( buto-kvadratura + 5 ) * 25) + 200"]
+      [calculation calculation-1 "reikia-elektros-instaliacijos-var * (( kambariu-skaicius + 10 ) * 20 + ( buto-kvadratura + 5 ) * 25) + buto-kvadratura / 4 * 20"]
     </div>
     <div class="num-wrap">
       <h5> Sienų tinkavimas </h5>
@@ -81,19 +84,19 @@
     </div>
     <div class="num-wrap">
       <h5> Plytelės </h5>
-      [calculation calculation-3-1 "(((buto-kvadratura - buto-kvadratura / 10  * vonios-kamb-skaicius) * 3) + buto-kvadratura) * 15"]    
+      [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) * vonios-kamb-skaicius"]  
     </div>
     <div class="num-wrap">
       <h5> Sienų ir lubų dažymas </h5>
-      [calculation calculation-4 "((buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 30) * vonios-kamb-skaicius"]
+      [calculation calculation-3-1 "(((buto-kvadratura - buto-kvadratura / 10  * vonios-kamb-skaicius) * 3) + buto-kvadratura) * 15"]  
     </div>
     <div class="num-wrap">
       <h5> Palangės </h5>
-      [calculation calculation-5 "50 * langai"]
+      [calculation calculation-5 "50 * langai - 2"]
     </div>
     <div class="num-wrap">
       <h5> Angokraščių glaistymas dažymas </h5>
-      [calculation calculation-6 init:0 min:0 "langai * 6 * 12"]
+      [calculation calculation-6 init:0 min:0 "langai * 9 * 12"]
     </div>
     <div class="num-wrap">
       <h5> Durys </h5>
@@ -105,31 +108,27 @@
     </div>
     <div class="num-wrap">
       <h5> Grindjuostės </h5>
-      [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 5) * 10"]
+      [calculation calculation-9 init:0 min:0 "(buto-kvadratura - 10) * 10"]
     </div>
     <div class="num-wrap">
       <h5> Santechnika </h5>
-      [calculation calculation-10 init:0 min:0 "vonios-kamb-skaicius * santechnika-var"]
+      [calculation calculation-10 init:0 min:0 "(vonios-kamb-skaicius + 2) * santechnika-var"]
     </div>
     <div class="num-wrap">
-      <h5> Vazmdyų keitimas</h5>
-      [calculation calculation-12 init:0 min:0 "(vonios-kamb-skaicius + 1) * vamzdynas-var"]
+      <h5>Rekuperatorius</h5>
+      [calculation calculation-12 init:0 min:0 "buto-kvadratura / 50 * rekup-var"]
     </div>
     <div class="num-wrap">
-      <h5> Radiatorių keitimas </h5>
-      [calculation calculation-13 init:0 min:0 "(kambariu-skaicius + 1) * radiatorius-var"]
+      <h5> Kolektorinių surinkimas </h5>
+      [calculation calculation-13 init:0 min:0 "aukstai * kolektorines-var"]
     </div>
     <div class="num-wrap">
-      <h5>WC ir vonios kambarių sujungimas</h5>
-      [calculation calculation-14 init:0 min:0 "vonios-kamb-skaicius * sujungti-wc-vonia-var"]
+      <h5>Laiptų apdaila</h5>
+      [calculation calculation-14 init:0 min:0 "(aukstai - 1) * 2000"]
     </div>
     <div class="num-wrap">
       <h5>Grindų lyginimas</h5>
-      [calculation calculation-15 init:0 min:0 "buto-kvadratura * lyginti-grindis-var "]
-    </div>
-    <div class="num-wrap">
-      <h5>Remonto pasiruošimo darbai: senų sienų, lubų, plytelių demontavimas</h5>
-      [calculation calculation-16 init:0 min:0 "buto-kvadratura * 12 + (buto-kvadratura / 10 * 3.2 + buto-kvadratura / 10) * 10 * vonios-kamb-skaicius"]
+      [calculation calculation-15 init:0 min:0 "buto-kvadratura * lyginti-grindis-var"]
     </div>
     <div class="num-wrap">
       <h5> Papildomi darbai </h5>
@@ -143,7 +142,7 @@
     <div style="height: 50px"> </div>
     <div class="num-wrap">
       <h4>Bendra suma</h4>
-      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11 + calculation-12 + calculation-13 + calculation-14 + calculation-15 + calculation-16 + calculation-3-1"]
+      [calculation galutinis-rezultatas id:galutinis-rezultatas class:galutinis-rezultatas init:0 min:0 precision:2 "calculation-1 + calculation-2 + calculation-3 + calculation-4 + calculation-5 + calculation-6 + calculation-7 + calculation-8 + calculation-9 + calculation-10 + calculation-11 + calculation-12 + calculation-13 + calculation-14 + calculation-15 + calculation-3-1"]
     </div>
     <p class="legal text-right">Tai yra preliminari sąmata atsižvelgus į pateiktą informaciją</p>
   </div>
